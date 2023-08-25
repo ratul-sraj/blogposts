@@ -2,16 +2,24 @@
 {% block content %}
     {% for post in posts %}
          <article class="media content-section">
-            <div class="media-body">
-                <div class="article-metadata">
+         <div class="container">
+          <div class="row">
+            <div class="col col-sm-2 pe-0">
+                <img src="{{ post.author.profile.image.url }}" class="rounded-circle article-img">
+            </div>
+            <div class="col col-sm-auto ps-0">
+                <div class="media-body">
+                    <div class="article-metadata">
                     <a class="me-3 text-capitalize" href="#">{{ post.author }}</a>
                     <small class="text-muted" href="#">{{ post.date_posted|date:"F d, Y" }}</small>
-                </div>
-                <h2>
-                    <a class="article-title" href="#">{{ post.title }}</a>
-                </h2>
-                <p class="article-content">{{ post.content }}</p>
-            </div>
+                    </div>
+                    <h2>
+                        <a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+                    </h2>
+                    <p class="article-content">{{ post.content }}</p>
+            </div>            </div>
+          </div>
+        </div>
          </article>
     {% endfor %}
 {% endblock content %}
