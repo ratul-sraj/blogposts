@@ -8,6 +8,7 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
+    DeleteView,
 )
 
 
@@ -28,6 +29,15 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
+class PostDeletelView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
+    model = Post
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+    success_url = '/'
 
 class PostCreateView(LoginRequiredMixin,CreateView):
     model = Post
