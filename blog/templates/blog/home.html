@@ -3,11 +3,11 @@
     {% for post in posts %}
          <article class="media content-section">
          <div class="container">
-          <div class="row">
-            <div class="col col-md-2 col-sm-1">
-                <img src="{{ post.author.profile.image.url }}" class="rounded-circle article-img">
+          <div class="row border mt-3 rounded">
+            <div class="col col-lg-2 mt-1">
+                <img src="{{ post.author.profile.image.url }}" class="img-thumbnail">
             </div>
-            <div class="col col-md-8">
+            <div class="col col-lg-10 mt-1">
                 <div class="media-body">
                     <div class="article-metadata">
                     <a class="me-3 text-capitalize" href="{% url 'user-posts' post.author.username%}">{{ post.author }}</a>
