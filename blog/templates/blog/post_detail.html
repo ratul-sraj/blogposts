@@ -9,7 +9,7 @@
             <div class="col col-sm-auto ps-0">
                 <div class="media-body">
                     <div class="article-metadata">
-                    <a class="me-3 text-capitalize" href="#">{{ object.author }}</a>
+                    <a class="me-3 text-capitalize" href="{% url 'user-posts' object.author.username%}">{{ object.author }}</a>
                     <small class="text-muted" href="#">{{ object.date_posted|date:"F d, Y" }}</small>
                     {% if object.author == user %}
                         <div>
